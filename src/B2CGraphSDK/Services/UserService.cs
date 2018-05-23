@@ -35,8 +35,9 @@ namespace B2CGraphSDK.Services
         public async Task<List<UserModel>> GetAllAsync(string query = "")
         {
             var response = await SendGraphGetRequest("/users", query);
+            var result = JsonConvert.DeserializeObject<ServiceResult<List<UserModel>>>(response);
 
-            return JsonConvert.DeserializeObject<List<UserModel>>(response);
+            return result?.Value;
         }
 
         public async Task<UserModel> GetByIdAsync(string objectId)

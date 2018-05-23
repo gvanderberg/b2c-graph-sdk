@@ -12,7 +12,7 @@ namespace B2CGraphSDK.Interfaces
 
         Task<bool> DeleteAsync(string objectId);
 
-        Task<List<UserModel>> GetAllAsync(string query);
+        Task<List<UserModel>> GetAllAsync(string query = "");
 
         Task<UserModel> GetByIdAsync(string objectId);
 
