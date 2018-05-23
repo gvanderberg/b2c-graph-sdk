@@ -32,7 +32,7 @@ namespace B2CGraphSDK.Services
             return string.IsNullOrEmpty(response);
         }
 
-        public async Task<List<UserModel>> GetAllAsync(string query)
+        public async Task<List<UserModel>> GetAllAsync(string query = "")
         {
             var response = await SendGraphGetRequest("/users", query);
 
