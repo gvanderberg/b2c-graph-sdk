@@ -12,6 +12,6 @@ namespace B2CGraphSDK
 
         public static readonly string GraphVersion = "api-version=1.6";
 
-        public static readonly string Instance = "https://login.microsoftonline.com/";
+        public static readonly string Instance = "https://login.microsoftonline.com";
     }
 }

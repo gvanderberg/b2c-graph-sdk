@@ -1,10 +1,16 @@
 ﻿using System;
 using System.Collections.Generic;
 
+using Newtonsoft.Json;
+
 namespace B2CGraphSDK.Models
 {
     public class UserModel
     {
+        [JsonConstructor]
+        private UserModel()
+        { }
+
         private UserModel(bool active, string city, string country, string postalCode, string fullName, string firstName, string lastName, string emailAddress)
         {
             AccountEnabled = active;
@@ -20,23 +26,25 @@ namespace B2CGraphSDK.Models
             return new UserModel(active, city, country, postalCode, fullName, firstName, lastName, emailAddress);
         }
 
-        public bool AccountEnabled { get; }
+        public string ObjectId { get; set; }
 
-        public string City { get; }
+        public bool AccountEnabled { get; set; }
 
-        public string Country { get; }
+        public string City { get; set; }
 
-        public string PostalCode { get; }
+        public string Country { get; set; }
 
-        public string CreationType { get; } = "LocalAccount";
+        public string PostalCode { get; set; }
 
-        public string DisplayName { get; }
+        public string CreationType { get; set; } = "LocalAccount";
 
-        public string GivenName { get; }
+        public string DisplayName { get; set; }
 
-        public string Surname { get; }
+        public string GivenName { get; set; }
 
-        public string PasswordPolicies { get; } = "DisablePasswordExpiration,DisableStrongPassword";
+        public string Surname { get; set; }
+
+        public string PasswordPolicies { get; set; } = "DisablePasswordExpiration,DisableStrongPassword";
 
         public PasswordProfile PasswordProfile { get; } = new PasswordProfile();
 
